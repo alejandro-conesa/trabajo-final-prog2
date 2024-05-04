@@ -7,9 +7,9 @@ class Organizer(user.User):
         self._type_org = None
         self._name = None
         self._id_user = None
-        self._event_list = []
 
     def register(self, type_org: str, name: str, id_user: str):
         self._type_org = type_org
         self._name = name
         self._id_user = id_user
+        self._is_registered = True

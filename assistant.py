@@ -19,3 +19,6 @@ class Assistant(user.User):
         self._tlf = tlf
         self._address = address  # formato {'city': 'Alicante', 'code': '03016', 'street': 'Camino Colonia Romana 20'}
         self._is_registered = True  # solo puedes añadirte a eventos si este valor está en true
+
+    def __str__(self):
+        return f'username: {self._username}, password: {self._password}, email: {self._email}\nname: {self._name}, birth date: {self._birth_date}, id: {self._id_num}, tlf: {self._tlf}, address: {self._address}'
