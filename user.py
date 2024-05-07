@@ -7,8 +7,8 @@ class User(ABC):
         self._username = username
         self._password = password
         self._email = email
-        self._event_list = []  # lista con los eventos asistidos o creados por un usuario (participante u organizador)
-        self._is_registered = False  # variable que impide participar o crear eventos si está en False
+        self._event_list: list = []  # lista con los eventos asistidos o creados por un usuario (participante u organizador)
+        self._is_registered: bool = False  # variable que impide participar o crear eventos si está en False
 
     @abstractmethod
     def register(self, *args):
