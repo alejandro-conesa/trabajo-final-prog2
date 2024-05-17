@@ -18,11 +18,20 @@ def assistant_dict_to_obj(dict_list):
     obj_list = []
     for di in dict_list:
         obj = assistant.Assistant(username=di['username'], password=di['password'], email=di['email'])
-        if not di['is_registered']:
-            obj_list.append(obj)
-        else:
+        if di['is_registered']:
             obj.register(name=di['name'], birth_date=di['birth_date'], id_num=di['id_num'], tlf=di['tlf'],
                          address=di['address'])
         obj.modify_event_list(event_list=di['event_list'])
+        obj_list.append(obj)
     return obj_list
 
+
+def organizer_dict_to_obj(dict_list):
+    obj_list = []
+    for di in dict_list:
+        obj = organizer.Organizer(username=di['username'], password=di['password'], email=di['email'])
+        if di['is_registered']:
+            obj.register(type_org=di['type_org'], name=di['name'], id_user=di['id_user'])
+        obj.modify_event_list(event_list=di['event_list'])
+        obj_list.append(obj)
+    return obj_list
