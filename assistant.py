@@ -22,6 +22,5 @@ class Assistant(user.User):
     def return_dict(self) -> dict:
         info_dict = {'username': self._username, 'password': self._password, 'email': self._email, 'name': self._name,
                      'birth_date': self._birth_date, 'id_num': self._id_num, 'tlf': self._tlf, 'address': self._address,
-                     'is_registered': self._is_registered}
+                     'event_list': self._event_list, 'is_registered': self._is_registered}
         return info_dict
-

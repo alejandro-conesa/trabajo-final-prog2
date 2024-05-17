@@ -17,3 +17,7 @@ class User(ABC):
     @abstractmethod
     def return_dict(self):
         pass
+
+    def modify_event_list(self, event_list: list) -> None:
+        for event in event_list:
+            self._event_list.append(event)
