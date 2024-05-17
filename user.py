@@ -11,11 +11,11 @@ class User(ABC):
         self._is_registered: bool = False  # variable que impide participar o crear eventos si está en False
 
     @abstractmethod
-    def register(self, *args):
+    def register(self, *args) -> None:
         pass
 
     @abstractmethod
-    def return_dict(self):
+    def return_dict(self) -> dict:
         pass
 
     def modify_event_list(self, event_list: list) -> None:

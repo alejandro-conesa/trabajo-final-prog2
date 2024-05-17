@@ -7,14 +7,14 @@ def save():
     connection = sqlite3.connect('ProyectoP2.db')
 
 
-def obj_to_dict(obj_list):
+def obj_to_dict(obj_list: list) -> list:
     dict_list = []
     for obj in obj_list:
         dict_list.append(obj.return_dict())
     return dict_list
 
 
-def assistant_dict_to_obj(dict_list):
+def assistant_dict_to_obj(dict_list: list) -> list:
     obj_list = []
     for di in dict_list:
         obj = assistant.Assistant(username=di['username'], password=di['password'], email=di['email'])
@@ -26,7 +26,7 @@ def assistant_dict_to_obj(dict_list):
     return obj_list
 
 
-def organizer_dict_to_obj(dict_list):
+def organizer_dict_to_obj(dict_list: list) -> list:
     obj_list = []
     for di in dict_list:
         obj = organizer.Organizer(username=di['username'], password=di['password'], email=di['email'])
