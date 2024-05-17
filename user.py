@@ -13,3 +13,7 @@ class User(ABC):
     @abstractmethod
     def register(self, *args):
         pass
+
+    @abstractmethod
+    def return_dict(self):
+        pass
