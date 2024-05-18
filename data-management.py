@@ -3,10 +3,6 @@ import assistant
 import organizer
 
 
-def save():
-    connection = sqlite3.connect('ProyectoP2.db')
-
-
 def obj_to_dict(obj_list: list) -> list:
     dict_list = []
     for obj in obj_list:
@@ -35,3 +31,18 @@ def organizer_dict_to_obj(dict_list: list) -> list:
         obj.modify_event_list(event_list=di['event_list'])
         obj_list.append(obj)
     return obj_list
+
+
+def save(org_list: list, assist_list: list) -> None:
+    org_dict_list = obj_to_dict(org_list)
+    assist_dict_list = obj_to_dict(assist_list)
+    connection = sqlite3.connect('ProyectoP2.db')
+
+
+def load() -> list:
+    # obtener de la db una lista de organizers y de asistentes
+    org_list = organizer_dict_to_obj()
+    assisst_list = assistant_dict_to_obj()
+    return org_list, assisst_list
+
+
