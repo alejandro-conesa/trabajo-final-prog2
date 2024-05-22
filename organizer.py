@@ -13,10 +13,9 @@ class Organizer(user.User):
         self._type_org = type_org  # type_org puede ser particular (p) o empresa (b)
         self._name = name
         self._id_user = id_user
-        self._is_registered = True
 
     def return_dict(self) -> dict:
         info_dict = {'username': self._username, 'password': self._password, 'email': self._email,
                      'type_org': self._type_org, 'name': self._name, 'id_user': self._id_user,
-                     'is_registered': self._is_registered}
+                     'event_list': self._event_list}
         return info_dict

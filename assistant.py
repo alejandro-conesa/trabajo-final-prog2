@@ -17,11 +17,9 @@ class Assistant(user.User):
         self._id_num = id_num
         self._tlf = tlf
         self._address = address  # formato {'city': 'Alicante', 'code': '03016', 'street': 'Camino Colonia Romana 20'}
-        self._is_registered = True  # solo puedes añadirte a eventos si este valor está en true
 
     def return_dict(self) -> dict:
         info_dict = {'username': self._username, 'password': self._password, 'email': self._email, 'name': self._name,
                      'birth_date': self._birth_date, 'id_num': self._id_num, 'tlf': self._tlf, 'address': self._address,
-                     'is_registered': self._is_registered}
+                     'event_list': self._event_list}
         return info_dict
-
