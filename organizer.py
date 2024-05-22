@@ -18,5 +18,5 @@ class Organizer(user.User):
     def return_dict(self) -> dict:
         info_dict = {'username': self._username, 'password': self._password, 'email': self._email,
                      'type_org': self._type_org, 'name': self._name, 'id_user': self._id_user,
-                     'event_list': self._event_list, 'is_registered': self._is_registered}
+                     'event_list': self._event_list}
         return info_dict
