@@ -172,4 +172,4 @@ class Ticket:
 
 
 
-tick = TicketGui()
+#tick = TicketGui()
