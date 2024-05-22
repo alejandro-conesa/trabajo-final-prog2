@@ -57,12 +57,22 @@ def save(org_list: list, assist_list: list) -> None:
             cursor.execute(sentence_assist)
         except sqlite3.IntegrityError:
             pass
+    connection.close()
 
 
-def load() -> list:
+def load(alr_org_list: list, alr_assist_list: list) -> list:
     # obtener de la db una lista de organizers y de asistentes
+    connection = sqlite3.connect('ProyectoP2.db')
+    cursor = connection.cursor()
+    sentence_assist = f'SELECT * FROM Users LEFT JOIN Assistants ON Users.username = Assistants.username'
+    sentence_org = f'SELECT * FROM Users LEFT JOIN Organizers ON Users.username = Organizers.username'
+    cursor.execute(sentence_assist)
+    query = cursor.fetchall()
+    for row in query:
+        if row[0] in alr_assist_list:
+
     org_list = organizer_dict_to_obj()
-    assisst_list = assistant_dict_to_obj()
-    return [org_list, assisst_list]
+    assist_list = assistant_dict_to_obj()
+    return [org_list, assist_list]
 
 
