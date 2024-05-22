@@ -63,6 +63,6 @@ def load() -> list:
     # obtener de la db una lista de organizers y de asistentes
     org_list = organizer_dict_to_obj()
     assisst_list = assistant_dict_to_obj()
-    return org_list, assisst_list
+    return [org_list, assisst_list]
 
 
