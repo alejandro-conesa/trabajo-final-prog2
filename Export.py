@@ -213,5 +213,5 @@ class ExportPdf(Export):
         pdf.output('event.pdf', 'F')
         conexion.close()
 
-eg = ExportGui()
+#eg = ExportGui()
 
