@@ -4,7 +4,7 @@ from assistant import Assistant
 class Evento:
     def _init_(self, event_id: int, tipo: str, nombre: str, mas18: int, start_date: str, final_date: str,
                  location: str, start_hour: str, final_hour: str, price: str, organizer: str,
-                 asistentes=None):
+                 asistentes=None, assistant_number=0):
         if asistentes is None:
             asistentes = []
         self._event_id = event_id
@@ -19,7 +19,7 @@ class Evento:
         self._price = price
         self._organizer = organizer
         self._asistentes = asistentes
-        self._assistant_number = len(asistentes)
+        self._assistant_number = assistant_number
 
     def return_dict(self) -> dict:
         info_dict = {
