@@ -10,6 +10,7 @@ def obj_to_dict(obj_list: list) -> list:
         dict_list.append(obj.return_dict())
     return dict_list
 
+
 def save_events(event_obj_list: list) -> None:
     connection = sqlite3.connect('ProyectoP2.db')
     cursor = connection.cursor()
