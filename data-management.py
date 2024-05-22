@@ -1,6 +1,7 @@
 import sqlite3
 import assistant
 import organizer
+import events
 
 
 def obj_to_dict(obj_list: list) -> list:
@@ -38,6 +39,7 @@ def load_events() -> list:
     sentence = 'SELECT * FROM Events LEFT JOIN Assist ON Events.event_id = Assist.event_id'
     cursor.execute(sentence)
     event_list = []
+    event_obj_list = []
     query = cursor.fetchall()
     i = 0
     for row in query:
@@ -49,4 +51,11 @@ def load_events() -> list:
             i += 1
         elif row[0] == event_list[i-1]['event_id']:
             event_list[i-1]['assistant_list'].append(row[12])
-    return event_list
+    for event in event_list:
+        event_obj_list.append(events.Event(event_id=event['event_id'], tipo=event['tipo'], nombre=event['nombre'],
+                                       mas18=event['mas18'], start_date=event['start_date'],
+                                       final_date=event['final_date'], assistant_number=event['assistant_number'],
+                                       location=event['location'], start_hour=event['start_hour'],
+                                       final_hour=event['final_hour'], price=event['price'],
+                                       organizer=event['organizer'], asistentes=event['assistant_list']))
+    return event_obj_list
