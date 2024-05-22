@@ -2,7 +2,7 @@ from user import User
 from assistant import Assistant
 
 class Evento:
-    def _init_(self, event_id: int, tipo: str, nombre: str, mas18: int, start_date: str, final_date: str,
+    def __init__(self, event_id: int, tipo: str, nombre: str, mas18: int, start_date: str, final_date: str,
                  location: str, start_hour: str, final_hour: str, price: str, organizer: str,
                  asistentes=None, assistant_number=0):
         if asistentes is None:
