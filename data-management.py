@@ -37,6 +37,18 @@ def save(org_list: list, assist_list: list) -> None:
     org_dict_list = obj_to_dict(org_list)
     assist_dict_list = obj_to_dict(assist_list)
     connection = sqlite3.connect('ProyectoP2.db')
+    cursor = connection.cursor()
+    for org in org_dict_list:
+        ir = 1 if org['is_registered'] else 0
+        tupla_org = (org['username'], org['password'], org['email'], org['type_org'], org['name'], org['id_user'], ir)
+        tupla_usr = (org['username'], org['password'], org['email'])
+        sentence_usr = f'INSERT INTO Users VALUES {tupla_usr}'
+        sentence_org = f'INSERT INTO Organizers VALUES {tupla_org}'
+        try:
+            cursor.execute(sentence_usr)
+            cursor.execute(sentence_org)
+        except sqlite3.IntegrityError:
+            pass
 
 
 def load() -> list:
